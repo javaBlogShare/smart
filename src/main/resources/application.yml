@@ -1,0 +1,42 @@
+spring:
+  thymeleaf:
+    mode:
+      LEGACYHTML5
+    check-template:
+      false
+    cache: false
+  datasource:
+    #    url: jdbc:mysql://10.31.100.157:3306/mg?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    #    username: hbwork
+    #    password: Hbwork157%%
+    url: jdbc:mysql://47.92.72.146:3306/test?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: root
+    password: 123456
+    hikari:
+      auto-commit: false
+      minimum-idle: 5
+      maximum-pool-size: 20
+      idle-timeout: 30000
+      pool-name: DatebookHikariCP
+      max-lifetime: 1800000
+      connection-timeout: 30000
+      connection-test-query: select 1
+    # 合并多个DruidDataSource的监控数据
+    #useGlobalDataSourceStat: true
+  jpa:
+    hibernate:
+      ddl-auto: update
+      naming:
+        strategy: org.hibernate.cfg.ImprovedNamingStrategy
+    show-sql: true
+    format-sql: true
+    properties:
+      hibernate:
+        dialect:
+          org.hibernate.dialect.MySQL5InnoDBDialect
+  profiles:
+    active: dev
+server:
+  port: 9000
+  servlet:
+    context-path: /smart
