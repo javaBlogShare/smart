@@ -2,8 +2,10 @@ package com.asiainfo.smart.entity;
 
 import lombok.Data;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Date;
 
 /**
@@ -12,6 +14,8 @@ import java.util.Date;
  * @Description ${DESCRIPTION}
  */
 @Data
+@Entity
+@Table(name = "task_result")
 public class TaskResult {
     @Id
     @GeneratedValue
