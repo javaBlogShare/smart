@@ -15,7 +15,7 @@ import java.util.Date;
  */
 @Data
 @Entity
-@Table(name = "task_result")
+@Table(name = "quartz_task_result")
 public class TaskResult {
     @Id
     @GeneratedValue

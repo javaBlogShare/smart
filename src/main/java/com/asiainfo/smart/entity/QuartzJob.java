@@ -20,7 +20,7 @@ import java.util.Date;
  */
 @Data
 @Entity
-@Table(name = "sys_quart_job")
+@Table(name = "quartz_quart_job")
 @JsonIgnoreProperties(value = {"hibernateLazyInitializer", "handler", "fieldHandler"})
 public class QuartzJob implements Serializable {
     private static final long serialVersionUID = 1L;
