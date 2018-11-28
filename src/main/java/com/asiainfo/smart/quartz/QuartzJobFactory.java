@@ -23,7 +23,14 @@ public class QuartzJobFactory implements Job {
         JobKey key = job.getKey();
         String jobIdentity = "scheduleJob" + key.getGroup() + "_" + key.getName();
         Trigger trigger = context.getTrigger();
-        QuartzJob scheduleJob = (QuartzJob) context.getMergedJobDataMap().get(jobIdentity);
+        QuartzJob scheduleJob = null;
+        Object objJob = context.getMergedJobDataMap().get(jobIdentity);
+        if(objJob instanceof QuartzJob){
+            scheduleJob = (QuartzJob) context.getMergedJobDataMap().get(jobIdentity);
+        }else {
+            System.out.println(objJob);
+            return;
+        }
         log.info("运行任务名称 = [" + scheduleJob + "]");
 
         try {

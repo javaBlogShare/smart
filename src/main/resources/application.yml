@@ -3,6 +3,7 @@ spring:
     job-store-type: jdbc
     jdbc:
       initialize-schema: always
+      schema: classpath:tables_mysql.sql
     properties:
       org:
         quartz:

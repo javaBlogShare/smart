@@ -22,7 +22,7 @@ import java.util.Set;
 /**
  * @author king-pan
  * @date 2018/11/26
- * @Description ${DESCRIPTION}
+ * @Description Spring Boot scheduler 服务类，提供了任务的添加删除暂停启动
  */
 @Slf4j
 @Service
