@@ -1,9 +1,9 @@
 spring:
   quartz:
     job-store-type: jdbc
-    jdbc:
-      initialize-schema: always
-      schema: classpath:tables_mysql.sql
+    #jdbc:
+     # initialize-schema: always
+      #schema: classpath:tables_mysql.sql
     properties:
       org:
         quartz:
@@ -32,7 +32,8 @@ spring:
     #    url: jdbc:mysql://10.31.100.157:3306/mg?useUnicode=true&characterEncoding=utf-8&useSSL=false
     #    username: hbwork
     #    password: Hbwork157%%
-    url: jdbc:mysql://47.92.72.146:3306/mg?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    #url: jdbc:mysql://47.92.72.146:3306/mg?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    url: jdbc:mysql://localhost:3306/smart?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
     username: root
     password: 123456
     hikari:

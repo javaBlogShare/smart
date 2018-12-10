@@ -17,8 +17,6 @@ import java.util.List;
  */
 public interface QuartzJobRepository extends JpaRepository<QuartzJob,Long> {
 
-
-
     /**
      *
      * @param jobStatus

@@ -21,7 +21,7 @@ public class BossPasswordHelper {
 
     public String getPwd(String time, String id) {
         StringBuilder sb = new StringBuilder(password);
-        sb.append(id).append(time);
+        sb.append(time).append(id);
         MessageDigest md = null;
         try {
             md = MessageDigest.getInstance("MD5");

@@ -13,7 +13,6 @@ public class ExpressionTest {
 
     @Test
     public void testCron(){
-
         System.out.println(CronExpressionUtils.getInstance().getCronMap());
     }
 }
