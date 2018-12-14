@@ -117,3 +117,24 @@ $.fn.setForm = function (jsonValue) {
 
 $.fn.modal.Constructor.prototype.enforceFocus = function () {
 };
+
+$(function () {
+    $(".navbar-nav li").click(function (e) {
+        console.log(e);
+        console.log(e.target);
+        console.log('我是$封装事件');
+        console.log($(this));
+        console.log($(this).text());
+        console.log($(this).html());
+        window.localStorage.setItem("nav",$(this));
+        window.nav = $(this);
+        alert("111");
+    });
+
+    if (window.nav) {
+        window.nav.click(function () {
+            $('.active').removeClass('active');
+            $(this).addClass('active');
+        });
+    }
+});

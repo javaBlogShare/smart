@@ -1,5 +1,7 @@
 package com.asiainfo.smart.entity;
 
+import lombok.Data;
+
 import javax.persistence.*;
 
 /**
@@ -7,6 +9,7 @@ import javax.persistence.*;
  * @date 2018/11/28
  * @Description 微信绑定变更信息表
  */
+@Data
 @Entity
 @Table(name = "ST_SMART_WEBCHAT_UNBUNDL_HM")
 public class WebChatInfo {

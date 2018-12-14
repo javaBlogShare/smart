@@ -2,8 +2,8 @@ spring:
   quartz:
     job-store-type: jdbc
     #jdbc:
-     # initialize-schema: always
-      #schema: classpath:tables_mysql.sql
+    # initialize-schema: always
+    #schema: classpath:tables_mysql.sql
     properties:
       org:
         quartz:
@@ -29,6 +29,7 @@ spring:
       false
     cache: false
   datasource:
+    # schema: classpath:tables-mysql.sql
     #    url: jdbc:mysql://10.31.100.157:3306/mg?useUnicode=true&characterEncoding=utf-8&useSSL=false
     #    username: hbwork
     #    password: Hbwork157%%
@@ -72,3 +73,12 @@ server:
 
 boss:
   password: a264a295e1f58099
+
+task:
+  hour:
+    send-cron: 0 50 * * * *  # 每小时的第50分钟执行 前2个小时未发送的消息例如: 20181212105000 发送 2018121208 该小时段的消息
+    check-cron: 0 50 * * * * # 每小时的第50分钟执行 前5个小时的遗漏未发送的消息 例如: 20181212105000 检查 2018121203 - 2018121207未发送的消息
+  day:
+    check-cron: 0 30 23 ? * *  # 每天的23：30 执行，检查上一天未发送的消息
+
+
