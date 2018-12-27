@@ -26,6 +26,7 @@ public class QuartzJobFactoryDisallowConcurrentExecution implements Job {
         JobDetail job = context.getJobDetail();
         JobKey key = job.getKey();
         String jobIdentity = "scheduleJob" + key.getGroup() + "_" + key.getName();
+        System.out.println(context.getMergedJobDataMap().get(jobIdentity));
         QuartzJob scheduleJob = (QuartzJob) context.getMergedJobDataMap().get(jobIdentity);
         Trigger trigger = context.getTrigger();
         log.info("运行任务名称 = [" + scheduleJob + "]");

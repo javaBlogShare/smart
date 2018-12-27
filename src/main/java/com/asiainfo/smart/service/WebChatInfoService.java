@@ -17,4 +17,29 @@ public interface WebChatInfoService {
      * @return 集合
      */
     public List<WebChatInfo> getTransList(String hour);
+
+    /**
+     * 查询上一天段状态变更信息
+     * @param day
+     * @return
+     */
+    public List<WebChatInfo> getDayTransList(String day);
+
+
+    /**
+     * 获取全量未同步的
+     * @return
+     */
+    public List<WebChatInfo> getAllTransList();
+
+
+    /**
+     * 批量保存
+     * @param infoList
+     * @return
+     */
+    public boolean saveList(List<WebChatInfo> infoList);
+
+
+
 }

@@ -1,6 +1,7 @@
 package com.asiainfo.smart.entity;
 
 import lombok.Data;
+import lombok.ToString;
 
 import javax.persistence.*;
 
@@ -11,6 +12,7 @@ import javax.persistence.*;
  */
 @Data
 @Entity
+@ToString
 @Table(name = "ST_SMART_WEBCHAT_UNBUNDL_HM")
 public class WebChatInfo {
 

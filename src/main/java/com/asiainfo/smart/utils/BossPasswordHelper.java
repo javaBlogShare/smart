@@ -1,5 +1,6 @@
 package com.asiainfo.smart.utils;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -12,11 +13,12 @@ import java.security.NoSuchAlgorithmException;
  * @date 2018/12/7
  * @Description ${DESCRIPTION}
  */
-//@Component
+@Slf4j
+@Component
 public class BossPasswordHelper {
 
 
-    //@Value("${boss.password}")
+    @Value("${boss.password}")
     private String password = "a264a295e1f58099";
 
     public String getPwd(String time, String id) {
@@ -26,14 +28,14 @@ public class BossPasswordHelper {
         try {
             md = MessageDigest.getInstance("MD5");
         } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
+            log.error(e.getMessage(), e);
         }
         md.update(sb.toString().getBytes());
         String md5 = new BigInteger(1, md.digest()).toString(16);
         return md5.length() == 32 ? md5 : fillMD5("0" + md5);
     }
 
-    public String fillMD5(String md5){
-        return md5.length()==32?md5:fillMD5("0"+md5);
+    public String fillMD5(String md5) {
+        return md5.length() == 32 ? md5 : fillMD5("0" + md5);
     }
 }

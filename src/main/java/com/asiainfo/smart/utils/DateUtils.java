@@ -17,6 +17,8 @@ public class DateUtils {
 
     public static  final String TIME = "yyyyMMddHHmmss";
 
+    public static final String HOUR = "yyyyMMddHH";
+
     public static final String DAY_YYYY_MM_DD = "yyyy-MM-dd";
 
 
@@ -58,6 +60,24 @@ public class DateUtils {
         DateTime now = new DateTime();
         DateTime tomorrow = now.plusDays(n);
         return tomorrow.toString(format);
+    }
+
+
+    public static String getBeforeHour(){
+        DateTime now = new DateTime();
+        DateTime beforeHour = now.plusHours(-1);
+        return beforeHour.toString(HOUR);
+    }
+
+    public static String getNHour(int n){
+        DateTime now = new DateTime();
+        DateTime beforeHour = now.plusHours(n);
+        return beforeHour.toString(HOUR);
+    }
+
+
+    public static void main(String[] args) {
+        System.out.println(getBeforeHour());
     }
 
 }

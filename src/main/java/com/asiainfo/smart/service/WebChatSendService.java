@@ -17,4 +17,12 @@ public interface WebChatSendService {
      * @return 集合
      */
     public List<WebChatSend> getSendList(String hour);
+
+    public boolean saveList(List<WebChatSend> sends);
+
+    /**
+     * 获取所有待发送的
+     * @return
+     */
+    public List<WebChatSend> getAllTodoSendList();
 }

@@ -1,6 +1,10 @@
 package com.asiainfo.smart.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 
@@ -11,13 +15,14 @@ import javax.persistence.*;
  */
 @Data
 @Entity
+@ToString
+@NoArgsConstructor
 @Table(name = "ST_SMART_WEBCHAT_UNBUNDL_SEND")
 public class WebChatSend {
     /**
      * 变更流水号
      */
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private String chgSn;
     /**
      * 用户标识
@@ -57,4 +62,17 @@ public class WebChatSend {
      * 统计小时
      */
     private String statHour;
+
+    public WebChatSend(String chgSn,String userId,String phoneNo,String userState,String statMonth,String statDate,String statHour,String stateChgTime,String CHG_ORG_ID){
+        this.chgSn = chgSn;
+        this.userId = userId;
+        this.phoneNo = phoneNo;
+        this.sendFlag = "0";
+        this.userState = userState;
+        this.statMonth = statMonth;
+        this.statDate = statDate;
+        this.statHour = statHour;
+        this.stateChgTime = stateChgTime;
+        this.CHG_ORG_ID = CHG_ORG_ID;
+    }
 }
