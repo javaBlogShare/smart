@@ -29,10 +29,11 @@ public class SendTask {
     private WebChatSendService webChatSendService;
 
     //@Scheduled(cron = "${task.hour.send-cron}")
-    @Scheduled(fixedRate = 10 * 1000)
+    @Scheduled(fixedRate = 100 * 1000)
     public void sendHourMsg() {
         String hour = DateUtils.getNHour(-2);
         try {
+            hour = "2018122409";
             log.info("开始发送微信绑定状态变更信息: 周期: {}", hour);
             List<WebChatSend> sendList = webChatSendService.getSendList(hour);
             sendList(sendList);
@@ -43,7 +44,7 @@ public class SendTask {
     }
 
 
-    @Scheduled(cron = "${task.all.send-cron}")
+    //@Scheduled(cron = "${task.all.send-cron}")
     public void sendAllMsg() {
         try {
             log.info("开始发送微信绑定状态变更信息: 周期: 全量未发送");
@@ -76,12 +77,13 @@ public class SendTask {
                     "<Body>\n" +
                     "<tagset>\n" +
                     "<telnum>" + webChatSend.getPhoneNo() + "</telnum>\n" +
-                    "<changetype>" + webChatSend.getUserState() + "</changetype>\n" +
+                    "<changetype>" + webChatSend.getRealState() + "</changetype>\n" +
                     "<changedate>" + webChatSend.getStateChgTime() + "</changedate>\n" +
                     "<changechannel></changechannel>\n" +
                     "</tagset>\n" +
                     "</Body>\n" +
                     "</message>";
+            System.out.println("请求报文:\n"+xml);
             String result = HttpClientUtil.doPostXml("http://120.202.17.100:13589/hmaopnew/busiHandle.srv", xml);
             System.out.println(result);
             sendFlag = true;
@@ -103,8 +105,9 @@ public class SendTask {
                     //标记发送失败
                     send.setSendFlag("2");
                 }
-                webChatSendService.saveList(sendList);
+                break;
             }
+            //webChatSendService.saveList(sendList);
         }
     }
 }

@@ -33,7 +33,7 @@ public class SyncTask {
     /**
      * 20分钟同步上一小时的数据
      */
-    @Scheduled(fixedRate = 20 * 60 * 1000)
+    //@Scheduled(fixedRate = 20 * 60 * 1000)
     public void timeToNow() {
         String hour = DateUtils.getBeforeHour();
         log.info("开始同步数据:  周期:{}", hour);
@@ -49,7 +49,8 @@ public class SyncTask {
     /**
      * 2个小时同步上一天的数据
      */
-    @Scheduled(cron = "${task.hour.sync-cron}")
+    //@Scheduled(cron = "${task.hour.sync-cron}")
+    //@Scheduled(fixedRate = 20 * 60 * 1000)
     public void daySync() {
         String day = DateUtils.getBeforeNDay(-1);
         log.info("开始把小时表数据同步到发送表:  周期:{}", day);
